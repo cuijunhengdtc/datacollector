@@ -369,7 +369,8 @@ public class StandaloneRunner extends AbstractRunner implements StateListener {
         int numBatches = configuraton.get(SNAPSHOT_NUM_BATCHES, SNAPSHOT_NUM_BATCHES_DEFAULT);
         int batchSize = configuraton.get(SNAPSHOT_BATCH_SIZE, SNAPSHOT_BATCH_SIZE_DEFAULT);
         LOG.info("Capturing " + numBatches + " batches of snapshot with size " + batchSize);
-        startAndCaptureSnapshot(context, "default", "default", numBatches, batchSize);
+        String uuid = UUID.randomUUID().toString();
+        startAndCaptureSnapshot(context, "default_"+uuid, "default_"+uuid, numBatches, batchSize);
       } else {
         start(context);
       }
